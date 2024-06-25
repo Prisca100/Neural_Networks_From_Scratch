@@ -132,10 +132,10 @@ def neural_net(X, y, layer_dims, learning_rate, num_iterations= 2000, print_cost
         grads = backward_pass(AL, y, caches)
         parameters = update_parameters(parameters, grads, learning_rate)
 
-        if print_cost:
+        if print_cost and i % 100 == 0:
             # print ("Cost after iteration %i: %f" %(i, cost))
             print("*****************************************************")
-            print(f"epoch {i+1}: loss: {cost}, accuracy: {accuracy}\n")
+            print(f"iteration {i+1}: loss: {cost}, accuracy: {accuracy}\n")
         costs.append(cost)
         accuracies.append(accuracy)
 
@@ -200,7 +200,7 @@ if __name__=="__main__":
     layer_dims = [3, 20, 10, 10, 1]
     X = np.random.randn(3, 100)
     Y = np.random.choice([0,1], size=(1, 100))
-    parameters, costs, accuracy, lr = neural_net(X, Y, layer_dims, 0.1, num_iterations=2500, print_cost= True)
+    parameters, costs, accuracy, lr = neural_net(X, Y, layer_dims, 0.1, num_iterations=2000, print_cost= True)
     p, _ = predict(X, Y, parameters)
     # print(Y)
     # print(p, _)
