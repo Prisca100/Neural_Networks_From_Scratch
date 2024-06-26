@@ -3,12 +3,14 @@ import matplotlib.pyplot as plt
 from utils import sigmoid, tanH, softMax, relU, reLU_backward, sigmoid_backward, softMax_backward
 from cost_functions import cross_entropy
 from testCase_v4a import L_model_forward_test_case
+
+
 def initialize_parameters(layer_dims):
     L = len(layer_dims)
     np.random.seed(3)
     parameters = {}
     for l in range(1, L):
-        parameters["W" + str(l)] = np.random.randn(layer_dims[l], layer_dims[l-1])
+        parameters["W" + str(l)] = np.random.randn(layer_dims[l], layer_dims[l-1])*0.1
         parameters["b" + str(l)] = np.zeros((layer_dims[l], 1))
 
         assert(parameters["W" + str(l)].shape == (layer_dims[l], layer_dims[l-1]))
@@ -147,6 +149,7 @@ def plot_history(costs, accuracies, lr):
 
     plt.subplot(221)
     plt.plot(np.squeeze(costs), color="red", label="loss")
+    plt.ylim(0, 1)
     plt.xlabel("cost")
     plt.ylabel("iterations (per hundreds)")
     plt.legend()
@@ -154,6 +157,7 @@ def plot_history(costs, accuracies, lr):
 
     plt.subplot(222)
     plt.plot(np.squeeze(accuracies), color="blue", label="accuracy")
+    plt.ylim(0,1)
     plt.xlabel("accuracy")
     plt.ylabel("iterations (per hundreds)")
     plt.legend()
@@ -162,6 +166,7 @@ def plot_history(costs, accuracies, lr):
     plt.subplot(223)
     plt.plot(np.squeeze(costs), color="red", label="loss")
     plt.plot(np.squeeze(accuracies), color="blue", label="accuracy")
+    plt.ylim(0,1)
     plt.ylabel('cost and accuracy')
     plt.xlabel('iterations (per hundreds)')
     plt.legend()

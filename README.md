@@ -4,25 +4,24 @@ Neural networks are pretty darn simple... if you know linear algebra and calculu
 ## Running the neural network
 1. Create and activate a virtual environment in your working directory:<br>
 Create: ```python -m venv venv ```.<br>
-Activate: ```cd venv/Scripts```. In the "Scripts" dr, type ```activate.bat```<br>
+Activate: ```cd venv/Scripts```. In the "Scripts" dir, type ```activate.bat```<br>
 Navigate back to your working directory and install the requirements using `pip install -r requirements.txt`. Head over to the *test.ipynb* file and have fun!
  
 ## Theory behind deep neural networks
-In this repo, we will be creating the multi-layer perceptron network from scratch, understading the theory and implementing the code from scratch.
+In this repo, we will be creating the multi-layer perceptron network from scratch, understanding the theory and implementing the code from scratch.
 
 
-### Forward Propagation
+<!-- ### Forward Propagation
 #### Computing linear 
 #### Computing activations
-#### Computing loss
+#### Computing loss -->
 
 ### Back Propagation
 #### Computing Gradient
-The first gradient we compute is the that of the output with respect to the loss. When we have this, we propagate it backward throughout the network using the megaboss ***Chain rule***
+The first gradient we compute is the that of the output with respect to the loss. When we have this, we propagate it backward throughout the network using the mega boss ***Chain rule***
 
 Here's how to do it.
-
-$$\frac{dLoss}{dA_{outputLayer}} = Some P$$
+$$\frac{dLoss}{dA_{outputLayer}} = P$$
 
 Gradients we are interested in:
 $$\frac{dL}{dW} = P* \frac{dA_l}{dZ} * \frac{dZ}{dW} \tag{dW}$$
@@ -102,7 +101,7 @@ $$
 dZ_l = dA_l*g'(Z_l)
 $$
 
-We can also find a more general form for $dZ_l$ for layers up to $l-1$
+<!-- We can also find a more general form for $dZ_l$ for layers up to $l-1$ -->
 
 <!-- $$dZ_l = W_{l+1}dZ_{l+1}*g'(Z_l)$$
 This is the chain rule magic. Thus we only need to know the output layer's dZ which is $P*g'(Z)$ and send it back if you will 😊. -->
